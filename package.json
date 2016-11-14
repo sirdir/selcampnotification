@@ -1,0 +1,11 @@
+{
+  "name": "selcampnotification",
+  "version": "1.0.0",
+  "description": "email me if tickets available",
+  "main": "index.js",
+  "scripts": {
+    "test": "protractor conf.js"
+  },
+  "author": "timur kubay <phddir@gmail.com>",
+  "license": "ISC"
+}
