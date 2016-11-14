@@ -1,3 +1,5 @@
-/**
- * Created by tku on 11/14/2016.
- */
+deacribe('magia', function () {
+   it('go go little girl', function () {
+
+   })
+});
