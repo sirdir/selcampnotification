@@ -2,17 +2,30 @@
 var nodemailer = require('nodemailer');
 
 describe('magia', function () {
-   var transporter = nodemailer.createTransport(transport[, defaults])
+   var transporter = nodemailer.createTransport('smtps://luxofttest1002@gmail.com:b55rkrgb13@smtp.gmail.com');
    it('go go little girl', function () {
       browser.ignoreSynchronization = true;
       browser.get('http://seleniumcamp.com/registration/');
       var prom = $('div.row>div:nth-child(1)>div>div.stage-left').getText();
+      var mailOptions1 = {from : 'fluxofttest1002@kubay.com', to: 'fluxofttest1001@kubay.com', subject: 'go and buy'};
+      var mailOptions2 = {from : 'fluxofttest1002@kubay.com', to: 'fluxofttest1002@kubay.com', subject: 'you are late'};
+
       var text = prom.then(function(text) {
          if (text === '0 left'){
-            transporter.sendMail({from : 'timur@kubay.com', to: 'luxofttest1002@gmail.com', subject: 'go and buy'});
+             transporter.sendMail(mailOptions1, function(error, info){
+                 if(error){
+                     return console.log(error);
+                 }
+                 console.log('Message sent: ' + info.response);
+             });
          }
          else {
-            transporter.sendMail({from : 'timur@kubay.com', to: 'luxofttest1001@gmail.com', subject: 'go and buy'});
+             transporter.sendMail(mailOptions2, function(error, info){
+                 if(error){
+                     return console.log(error);
+                 }
+                 console.log('Message sent: ' + info.response);
+             });
          }
       });
       console.log(text === '1 left');
